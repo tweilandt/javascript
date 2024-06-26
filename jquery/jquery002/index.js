@@ -1,0 +1,1 @@
+$("#paragraph").html("Olá, <strong>Taís</strong>!")
