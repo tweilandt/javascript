@@ -1,4 +1,4 @@
-const { error } = require("node:console");
+/*const { error } = require("node:console");
 const fs = require("node:fs");
 
 console.log("First");
@@ -34,4 +34,10 @@ fs.readFile("maravilhsa.txt", "utf-8", (error, data) => {
     } else {
         console.log(data);
     }
-});
+});*/
+
+const fs = require("node:fs/promises");
+
+fs.readFile("maravilha.txt", "utf-8")
+.then((data) => console.log(data))
+.catch((error) => console.log(error));
