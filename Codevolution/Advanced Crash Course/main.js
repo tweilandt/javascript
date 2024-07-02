@@ -68,7 +68,7 @@ function sayMyName(){
 
 //sayMyName.call(person)
 
-function Person(name){
+/*function Person(name){
     this.name = name
 }
 
@@ -76,4 +76,42 @@ const p1 = new Person('Taís')
 const p2 = new Person ('Josefa')
 //console. log(p1.name, p2.name)
 
-sayMyName()
+//sayMyName() */
+
+function Person(fName, lName){
+    this.firstName = fName
+    this.lastName = lName
+}
+
+const person1 = new Person('Ada', 'Lovelace')
+const person2 = new Person('Angela', 'Davis')
+
+/*person1.getFullName = function (){
+    return `${this.firstName} ${this.lastName}`
+}
+
+console.log(person1.getFullName())
+console.log(person2.getFullName())*/
+
+Person.prototype.getFullName = function (){
+    return `${this.firstName} ${this.lastName}`
+}
+
+//console.log(person1.getFullName())
+//console.log(person2.getFullName())
+
+function SuperHero(fName, lName) {
+    Person.call(this, fName, lName)
+    this.isSuperHero = true
+}
+
+SuperHero.prototype.fightCrime = function (){
+    console.log("Fighting crime")
+}
+
+SuperHero.prototype = Object.create(Person.prototype)
+SuperHero.prototype.constructor = SuperHero
+const batman = new SuperHero('Bruce', 'Wayne')
+console.log(batman.getFullName())
+//console.log(Object.entries(batman))
+
