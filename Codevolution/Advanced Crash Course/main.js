@@ -52,7 +52,7 @@ function curry(fn){
 const curriedSum = curry(sum)
 console.log(curriedSum(2)(3)(5))*/
 
-const person = {
+/*const person = {
     name: 'Taís',
     sayMyName: function() {
         console.log(`My name is ${this.name}`)
@@ -78,7 +78,7 @@ const p2 = new Person ('Josefa')
 
 //sayMyName() */
 
-function Person(fName, lName){
+/*function Person(fName, lName){
     this.firstName = fName
     this.lastName = lName
 }
@@ -93,7 +93,7 @@ const person2 = new Person('Angela', 'Davis')
 console.log(person1.getFullName())
 console.log(person2.getFullName())*/
 
-Person.prototype.getFullName = function (){
+/*Person.prototype.getFullName = function (){
     return `${this.firstName} ${this.lastName}`
 }
 
@@ -113,5 +113,53 @@ SuperHero.prototype = Object.create(Person.prototype)
 SuperHero.prototype.constructor = SuperHero
 const batman = new SuperHero('Bruce', 'Wayne')
 console.log(batman.getFullName())
-//console.log(Object.entries(batman))
+//console.log(Object.entries(batman))*/
+
+class Person{
+    constructor(fName, lName){
+        this.firstName = fName
+        this.lastName = lName
+    }
+
+    sayMyName(){
+        return `${this.firstName} ${this.lastName}`
+    }
+}
+
+/*const classP1 = new Person('Bruce', 'Wayne')
+//console.log(classP1.sayMyName())
+
+class SuperHero extends Person{
+    constructor(fName, lName){
+        super(fName, lName)
+        this.isSuperHero = true
+    }
+
+    fightCrime(){
+        console.log("Fighting crime")
+    }
+}
+
+const batman = new SuperHero('Bruce', 'Wayne')
+batman.fightCrime()
+console.log(batman.sayMyName())*/
+
+/*const str = 'Taís'
+
+/*for (let i = 0; i < str.length; i++){
+    console.log(str.charAt(i))
+}*/
+/*for (const char of str){
+    console.log(char)
+}
+
+const arr = ['T', 'a', 'í', 's']
+
+/*for (let i = 0; i < arr.length; i++){
+    console.log(arr[i])
+}*/
+
+/*for (const item of arr){
+    console.log(item)
+}*/
 
