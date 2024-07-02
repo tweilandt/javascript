@@ -33,7 +33,7 @@ const fn = outer()
 fn()
 fn()*/
 
-function sum(a, b, c){
+/* function sum(a, b, c){
     return a  + b + c
 }
 
@@ -50,4 +50,30 @@ function curry(fn){
 }
 
 const curriedSum = curry(sum)
-console.log(curriedSum(2)(3)(5))
+console.log(curriedSum(2)(3)(5))*/
+
+const person = {
+    name: 'Taís',
+    sayMyName: function() {
+        console.log(`My name is ${this.name}`)
+    },
+}
+
+//person.sayMyName()
+//const name = 'Cosmerinda'
+globalThis.name = 'Cosmerinda'
+function sayMyName(){
+    console.log(`My name is ${this.name}`)
+}
+
+//sayMyName.call(person)
+
+function Person(name){
+    this.name = name
+}
+
+const p1 = new Person('Taís')
+const p2 = new Person ('Josefa')
+//console. log(p1.name, p2.name)
+
+sayMyName()
