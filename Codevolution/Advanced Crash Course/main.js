@@ -163,7 +163,7 @@ const arr = ['T', 'a', 'í', 's']
     console.log(item)
 }*/
 
-const obj = {
+/*const obj = {
     [Symbol.iterator]: function(){
         let step = 0
         const iterator = {
@@ -182,5 +182,16 @@ const obj = {
 }
 
 for (const word of obj){
+    console.log(word)
+}*/
+
+function* generatorFunction(){
+    yield 'Hello'
+    yield 'World'
+}
+
+const generatorObject = generatorFunction()
+
+for (const word of generatorObject){
     console.log(word)
 }
