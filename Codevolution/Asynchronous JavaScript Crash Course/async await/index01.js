@@ -4,9 +4,48 @@ console.log(greet())
 async function saudacao() { return "Hello"}
 console.log(saudacao())*/
 
-async function greet(){
+/*async function greet(){
     return Promise.resolve("Hello")
 }
 
 greet()
-.then((value) => {console.log(value)})
+.then((value) => {console.log(value)})*/
+
+/*async function greet(){
+
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Hello"), 1000)
+    });
+
+    let result = await promise;
+
+    console.log(result);
+}
+
+greet()*/
+
+function resolveHello(){
+    return new Promise(resolve => {
+        setTimeout(function (){
+            resolve('Hello')
+        },2000)
+    })
+}
+
+function resolveWorld(){
+    return new Promise(resolve =>{
+        setTimeout(function(){
+            resolve('World')
+        },1000)
+    })
+}
+
+async function sequentialStart(){
+    const hello = await resolveHello()
+    console.log(hello)
+
+    const world = await resolveWorld()
+    console.log(world)
+}
+
+sequentialStart()
