@@ -48,4 +48,14 @@ async function sequentialStart(){
     console.log(world)
 }
 
-sequentialStart()
+//sequentialStart()
+
+async function concurrentStart(){
+    const hello = resolveHello()
+    const world = resolveWorld()
+
+    console.log(await hello)
+    console.log(await world)
+}
+
+concurrentStart()
