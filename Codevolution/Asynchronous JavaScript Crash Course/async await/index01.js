@@ -58,4 +58,21 @@ async function concurrentStart(){
     console.log(await world)
 }
 
-concurrentStart()
+//concurrentStart()
+
+/*function parallel(){
+    Promise.all([
+        (async () => console.log(await resolveHello()))(),
+        (async () => console.log(await resolveWorld()))(),
+    ])
+}*/
+
+async function parallel(){
+    await Promise.all([
+        (async () => console.log(await resolveHello()))(),
+        (async () => console.log(await resolveWorld()))(),
+    ])
+    console.log('Finally')
+}
+
+parallel()
