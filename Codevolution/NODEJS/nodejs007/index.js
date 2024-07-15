@@ -36,5 +36,8 @@ const {add, subtract} = math;
 console.log(add(1,2));
 console.log(subtract(1,2));*/
 
-const data = require("./data.json")
-console.log(data)
+/*const data = require("./data.json")
+console.log(data)*/
+
+console.log("Hello taís");
+
