@@ -29,10 +29,12 @@ console.log(superHero.getName());
 const newSuperHero = new SuperHero("Batman");
 console.log(newSuperHero.getName());*/
 
-const math = require('./math');
+/*const math = require('./math');
 
 const {add, subtract} = math;
 
 console.log(add(1,2));
-console.log(subtract(1,2));
+console.log(subtract(1,2));*/
 
+const data = require("./data.json")
+console.log(data)
