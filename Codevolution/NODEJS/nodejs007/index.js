@@ -68,8 +68,26 @@ console.log(path.isAbsolute("./math.js"));*/
 
 //console.log(path.join(__dirname, "data.json"));
 
-console.log(path.resolve("folder1", "folder2", "index.html"));
+/*console.log(path.resolve("folder1", "folder2", "index.html"));
 console.log(path.resolve("/folder1", "folder2", "index.html"));
 console.log(path.resolve("/folder1", "//folder2", "index.html"));
 console.log(path.resolve("/folder1", "//folder2", "../index.html"));
-console.log(path.resolve(__dirname, "data.json"));
+console.log(path.resolve(__dirname, "data.json"));*/
+
+const EventEmitter = require("node:events");
+
+const emitter = new EventEmitter();
+
+emitter.on("order-pizza", (size, topping) =>{
+    console.log(`Order received! Baking a ${size} pizza with ${topping}!`)
+});
+
+emitter.on("order-pizza", (size) =>{
+    if(size === "large"){
+        console.log("Serving complemantary drink.")
+    };
+});
+
+console.log("Do work before event occurs in the system");
+
+emitter.emit("order-pizza", "large", "muzzarela");
