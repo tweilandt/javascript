@@ -116,7 +116,7 @@ console.log(buffer.toString());
 buffer.write("Maravilha");
 console.log(buffer.toString());*/
 
-const fs = require("node:fs");
+/*const fs = require("node:fs");
 
 console.log("First");
 
@@ -143,5 +143,24 @@ fs.writeFile("./greet.txt", " Seja bem-vinda, Taís!", { flag: "a" }, (err, data
     } else{
         console.log("File written");
     }
-})
+})*/
 
+const fs = require("node:fs/promises");
+
+/*console.log("First");
+
+fs.readFile("file.txt", "utf-8")
+.then((data) => console.log(data))
+.catch((err) => console.log(err));
+
+console.log("Second");*/
+
+async function readFile(){
+    try{
+        const data = await fs.readFile("file.txt", "utf-8");console.log(data);
+    } catch (err){
+        console.log(err);
+    }
+}
+
+readFile();
