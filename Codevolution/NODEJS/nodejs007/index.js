@@ -92,7 +92,7 @@ console.log("Do work before event occurs in the system");
 
 emitter.emit("order-pizza", "large", "muzzarela");*/
 
-const PizzaShop = require("./pizza-shop");
+/*const PizzaShop = require("./pizza-shop");
 const DrinkMachine = require("./drink-machine");
 
 const pizzaShop = new PizzaShop();
@@ -103,4 +103,17 @@ pizzaShop.on("order", (size, topping) =>{
     drinkMachine.servingDrink(size);
 });
 pizzaShop.order("large", "muzzarela");
-pizzaShop.displayOrderNumber();
+pizzaShop.displayOrderNumber();*/
+
+const buffer = new Buffer.from("Taís", "utf-8"); //"utf-8 is default => optionaal"
+
+buffer.write("Ol");
+
+//console.log(buffer.toJSON());
+console.log(buffer.toString());
+//console.log(buffer.toString());
+
+buffer.write("Maravilha");
+console.log(buffer.toString());
+
+
