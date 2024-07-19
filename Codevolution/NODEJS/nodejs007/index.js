@@ -74,7 +74,7 @@ console.log(path.resolve("/folder1", "//folder2", "index.html"));
 console.log(path.resolve("/folder1", "//folder2", "../index.html"));
 console.log(path.resolve(__dirname, "data.json"));*/
 
-const EventEmitter = require("node:events");
+/*const EventEmitter = require("node:events");
 
 const emitter = new EventEmitter();
 
@@ -90,4 +90,17 @@ emitter.on("order-pizza", (size) =>{
 
 console.log("Do work before event occurs in the system");
 
-emitter.emit("order-pizza", "large", "muzzarela");
+emitter.emit("order-pizza", "large", "muzzarela");*/
+
+const PizzaShop = require("./pizza-shop");
+const DrinkMachine = require("./drink-machine");
+
+const pizzaShop = new PizzaShop();
+const drinkMachine = new DrinkMachine();
+
+pizzaShop.on("order", (size, topping) =>{
+    console.log(`Order received! Baking a ${size} pizza with ${topping}!`)
+    drinkMachine.servingDrink(size);
+});
+pizzaShop.order("large", "muzzarela");
+pizzaShop.displayOrderNumber();
