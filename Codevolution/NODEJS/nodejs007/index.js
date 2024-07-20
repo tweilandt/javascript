@@ -145,15 +145,15 @@ fs.writeFile("./greet.txt", " Seja bem-vinda, Taís!", { flag: "a" }, (err, data
     }
 })*/
 
-const fs = require("node:fs/promises");
+/*const fs = require("node:fs/promises");
 
-/*console.log("First");
+console.log("First");
 
 fs.readFile("file.txt", "utf-8")
 .then((data) => console.log(data))
 .catch((err) => console.log(err));
 
-console.log("Second");*/
+console.log("Second");
 
 async function readFile(){
     try{
@@ -163,4 +163,18 @@ async function readFile(){
     }
 }
 
-readFile();
+readFile();*/
+
+const fs = require("node:fs")
+
+const readeableStream = fs.createReadStream("./file.txt", {
+    encoding: "utf-8",
+    highWaterMark: 2,
+});
+
+const writeableStream = fs.createWriteStream("./file2.txt");
+
+readeableStream.on("data", (chunk) => {
+    console.log(chunk);
+    writeableStream.write(chunk);
+});
