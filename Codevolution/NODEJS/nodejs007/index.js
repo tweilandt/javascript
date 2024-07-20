@@ -166,15 +166,24 @@ async function readFile(){
 readFile();*/
 
 const fs = require("node:fs")
+const zlib = require("node:zlib")
+
+const gzip = zlib.createGzip()
 
 const readeableStream = fs.createReadStream("./file.txt", {
     encoding: "utf-8",
     highWaterMark: 2,
 });
 
+const writeStream = fs.WriteStream("./file2.txt.gz");
+
+readeableStream.pipe(gzip).pipe(writeStream);
+
 const writeableStream = fs.createWriteStream("./file2.txt");
 
-readeableStream.on("data", (chunk) => {
+readeableStream.pipe(writeableStream);
+
+/*readeableStream.on("data", (chunk) => {
     console.log(chunk);
     writeableStream.write(chunk);
-});
+});*/
