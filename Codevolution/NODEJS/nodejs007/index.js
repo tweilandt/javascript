@@ -193,17 +193,36 @@ const fs = require("node:fs");
 
 const server = http.createServer((req, res) => {
 
-    const name = "Taís";
+    //const name = "Taís";
 
-    /*const superHero = {
+    const superHero = {
         firstName: "Bruce",
         lastName: "Wayne"
-    }*/
-    res.writeHead(200, { "Content-Type": "text/html"});
-    //fs.createReadStream(__dirname + "/index.html");
-    let html = fs.readFileSync("./index.html", "utf-8");
-    html = html.replace("{{name}}", name);
-    res.end(html);
+    }
+    const readableStream = fs.createReadStream(__dirname + "/index.html");
+    //let html = fs.readFileSync("./index.html", "utf-8");
+    //html = html.replace("{{name}}", name);
+    switch(req.url){
+        case "/":
+            res.writeHead(200, { "Content-Type": "text/html"});
+            readableStream.pipe(res);
+            break;
+        case "/about":
+            res.writeHead(200, { "Content-Type": "text/html"});
+            res.end("About Page");
+            break;
+        case "/contact":
+            res.writeHead(200, { "Content-Type": "text/html"});
+            res.end("Contact Page");
+            break;
+        case "/api":
+            res.writeHead(200, { "Content-Type": "application/json"});
+            res.end(JSON.stringify(superHero));
+            break;
+        default:
+            res.writeHead(404);
+            res.end("Page Not Found");
+    }
     //res.end("<h1>Voce consegue! Maravilhosa!</h1>");
 });
 
