@@ -1,5 +1,10 @@
 setTimeout(() => console.log("this is setTimeout 1"), 0);
-setTimeout(() => console.log("this is setTimeout 2"), 0);
+setTimeout(() => {
+    console.log("this is setTimeout 2");
+    process.nextTick(() => {
+        console.log("this is the inner nextTick inside setTimeout");
+    });
+}, 0);
 setTimeout(() => console.log("this is setTimeout 3"), 0);
 
 process.nextTick(() => console.log("this is process.nextTick 1"));
