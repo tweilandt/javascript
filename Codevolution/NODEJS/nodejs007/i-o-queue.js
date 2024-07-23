@@ -5,6 +5,8 @@ const fs = require("node:fs");
 fs.readFile(__filename, () => {
     console.log("this is readFile 1");
     setImmediate(() => console.log("this is inner setImmediate 1 inside readFile"));
+    process.nextTick(() => console.log("this is inner process.nextTick inside readFile"));
+    Promise.resolve().then(() => console.log("this is inner promise.resolve inside readFile"));
 });
 
 process.nextTick(() => console.log("this is process.nextTick 1"));
