@@ -1,4 +1,13 @@
-const fs = require("node:fs");
+setImmediate(() => console.log("this is setImmediate 1"));
+setImmediate(() => {
+    console.log("this is setImmediate 2");
+    process.nextTick(() => console.log("this is proecss.nextTick 1"));
+    Promise.resolve().then(() => console.log("this is promise.resolve 1"));
+});
+setImmediate(() => console.log("this is setImmediate 3"));
+
+
+/*const fs = require("node:fs");
 
 
 
@@ -14,4 +23,4 @@ Promise.resolve().then(() => console.log("this is promise.resolve 1"));
 setTimeout(() => console.log("this is setTimeout 1"), 0);
 
 
-for(let i = 0; i < 20000; i++);
+for(let i = 0; i < 20000; i++);*/
