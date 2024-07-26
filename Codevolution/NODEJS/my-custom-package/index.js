@@ -1,5 +1,7 @@
-function greet(name){
-    console.log(`Hello ${name}, welcome!`)
-}
+const upperCase = require("upper-case").upperCase;
 
+function greet(name){
+    console.log(upperCase(`Hello ${name}, welcome!`));
+}
+greet("Taís");
 module.exports = greet;
