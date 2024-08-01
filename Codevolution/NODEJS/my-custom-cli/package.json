@@ -7,9 +7,12 @@
   },
   "bin": {
     "tweilandt-pokedex": "index.js"
-  }, 
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "inquirer": "^8.2.5"
+  }
 }
