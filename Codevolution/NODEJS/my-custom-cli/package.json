@@ -1,0 +1,15 @@
+{
+  "name": "tweilandt-poke10",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "tweilandt-pokedex": "index.js"
+  }, 
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
